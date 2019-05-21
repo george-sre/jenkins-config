@@ -19,20 +19,20 @@ spec:
           fieldPath: status.podIP
     - name: DOCKER_HOST
       value: tcp://localhost:2375
-    envFrom:
-    - configMapRef:
-        name: global-conf
-    - secretRef:
-        name: node-team1.service-secrets
+    # envFrom:
+    # - configMapRef:
+    #     name: global-conf
+    # - secretRef:
+    #     name: node-team1.service-secrets
     image: georgesre/jnlp-node-team1:latest
     imagePullPolicy: Always
     securityContext:
       privileged: true
     tty: true
-    volumeMounts:
-    - mountPath: /etc/service-secrets
-      name: service-secrets
-      readOnly: true
+    # volumeMounts:
+    # - mountPath: /etc/service-secrets
+    #   name: service-secrets
+    #   readOnly: true
   - name: dind
     image: docker:dind
     imagePullPolicy: Always
@@ -42,8 +42,8 @@ spec:
       - name: dind-storage
         mountPath: /var/lib/docker
   volumes:
-  - name: service-secrets
-    secret:
-      secretName: node-team1.service-secrets
+  # - name: service-secrets
+  #   secret:
+  #     secretName: node-team1.service-secrets
   - name: dind-storage
     emptyDir: {}
