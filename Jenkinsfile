@@ -46,21 +46,21 @@ pipeline {
             }
         }
 
-        // stage('Run Parallel Tests') {
-        //     parallel {
-        //         stage('Test On node-team1') {
-        //             agent { label "node-team1" }
-        //             steps { sh "echo I am good on node-team1" }
-        //         }
-        //         stage('Test On node-team2') {
-        //             agent { label "node-team2" }
-        //             steps { sh "echo I am good on node-team2" }
-        //         }
-        //         stage('Test On node-team3') {
-        //             agent { label "node-team3" }
-        //             steps { sh "echo I am good on node-team3" }
-        //         }
-        //     }
-        // }
+        stage('Run Parallel Tests') {
+            parallel {
+                stage('Test On node-team1') {
+                    agent { label "node-team1" }
+                    steps { sh "echo I am good on node-team1" }
+                }
+                stage('Test On node-team2') {
+                    agent { label "node-team2" }
+                    steps { sh "echo I am good on node-team2" }
+                }
+                stage('Test On node-team3') {
+                    agent { label "node-team3" }
+                    steps { sh "echo I am good on node-team3" }
+                }
+            }
+        }
     }
 }
