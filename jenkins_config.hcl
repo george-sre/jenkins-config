@@ -21,5 +21,10 @@
   "template": {
     "source": "/var/jenkins_home/jenkins_config/config/node-team3.pod.yaml.ctmpl",
     "destination": "/var/jenkins_home/jenkins_config/config/node-team3.pod.yaml"
+  },
+
+  "template": {
+    "source": "/var/jenkins_home/jenkins_config/config/node-team4.pod.yaml.ctmpl",
+    "destination": "/var/jenkins_home/jenkins_config/config/node-team4.pod.yaml"
   }
 }
