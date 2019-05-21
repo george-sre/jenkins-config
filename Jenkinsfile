@@ -23,13 +23,6 @@ pipeline {
             steps { sh 'consul-template -vault-addr "$VAULT_ADDR" -config "jenkins_config.hcl" -once -vault-retry-attempts=1 -vault-renew-token=false' }
         }
 
-        stage('RUN GROOVY on PR* on test Jenkins') {
-            when { allOf { branch 'PR-*'; environment name: 'SERVICE_NAMESPACE', value: 'test' } }
-            steps {
-                load("/var/jenkins_home/jenkins_config/src/kubernetes.groovy")
-            }
-        }
-
         stage('RUN GROOVY on master') {
             when { branch 'master' }
             steps {
