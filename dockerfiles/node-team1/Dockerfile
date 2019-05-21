@@ -11,4 +11,3 @@ RUN apk update && \
 RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 RUN usermod -aG docker jenkins
 RUN usermod -aG root jenkins
-
