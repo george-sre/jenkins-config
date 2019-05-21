@@ -1,0 +1,40 @@
+
+kubernetes {
+    name = 'local-cluster'
+    serverUrl = 'https://kubernetes.default'
+    skipTlsVerify = true
+    namespace = 'george'
+    jenkinsUrl = 'http://47.101.74.28:8080/'
+    credentialsId = ''
+    containerCapStr = '1000'
+    retentionTimeout = 5
+    connectTimeout = 25
+    readTimeout = 0
+    podTemplates = [
+        [
+            name: 'node-team1',
+            nameSpace: 'node-team1',
+            label: 'node-team1',
+            rawYamlFilePath: '/var/jenkins_home/jenkins_config/config/node-team1.pod.yaml',
+            exclusive: true,
+            idleMinutes: 0
+        ],
+        [
+            name: 'node-team2',
+            nameSpace: 'node-team2',
+            label: 'node-team2',
+            rawYamlFilePath: '/var/jenkins_home/jenkins_config/config/node-team2.pod.yaml',
+            exclusive: true,
+            idleMinutes: 0
+        ],
+        [
+            name: 'node-team3',
+            nameSpace: 'node-team3',
+            label: 'node-team3',
+            rawYamlFilePath: '/var/jenkins_home/jenkins_config/config/node-team3.pod.yaml',
+            exclusive: true,
+            idleMinutes: 0
+        ]
+
+    ]
+}
