@@ -34,6 +34,14 @@ kubernetes {
             rawYamlFilePath: '/var/jenkins_home/jenkins_config/config/node-team3.pod.yaml',
             exclusive: true,
             idleMinutes: 0
+        ],
+        [
+            name: 'node-team4',
+            nameSpace: 'node-team4',
+            label: 'node-team4',
+            rawYamlFilePath: '/var/jenkins_home/jenkins_config/config/node-team4.pod.yaml',
+            exclusive: true,
+            idleMinutes: 0
         ]
 
     ]

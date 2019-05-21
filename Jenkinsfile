@@ -42,6 +42,9 @@ pipeline {
                     docker.withRegistry('', "${REGISTRY_CREDENTIALS_ID}") {
                         docker.build("georgesre/jnlp-node-team3:${TAG_NAME}", "-f dockerfiles/node-team3/Dockerfile dockerfiles/node-team3").push()
                     }
+                    docker.withRegistry('', "${REGISTRY_CREDENTIALS_ID}") {
+                        docker.build("georgesre/jnlp-node-team4:${TAG_NAME}", "-f dockerfiles/node-team4/Dockerfile dockerfiles/node-team4").push()
+                    }
                 }
             }
         }
@@ -59,6 +62,10 @@ pipeline {
                 stage('Test On node-team3') {
                     agent { label "node-team3" }
                     steps { sh "echo I am good on node-team3" }
+                }
+                stage('Test On node-team4') {
+                    agent { label "node-team4" }
+                    steps { sh "echo I am good on node-team4 && perl -v" }
                 }
             }
         }
