@@ -36,6 +36,12 @@ pipeline {
                     docker.withRegistry('', "${REGISTRY_CREDENTIALS_ID}") {
                         docker.build("georgesre/jnlp-node-team1:${TAG_NAME}", "-f dockerfiles/node-team1/Dockerfile dockerfiles/node-team1").push()
                     }
+                    docker.withRegistry('', "${REGISTRY_CREDENTIALS_ID}") {
+                        docker.build("georgesre/jnlp-node-team2:${TAG_NAME}", "-f dockerfiles/node-team2/Dockerfile dockerfiles/node-team2").push()
+                    }
+                    docker.withRegistry('', "${REGISTRY_CREDENTIALS_ID}") {
+                        docker.build("georgesre/jnlp-node-team3:${TAG_NAME}", "-f dockerfiles/node-team3/Dockerfile dockerfiles/node-team3").push()
+                    }
                 }
             }
         }
