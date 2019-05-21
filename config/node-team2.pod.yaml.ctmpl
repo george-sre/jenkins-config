@@ -24,7 +24,7 @@ spec:
         name: global-conf
     - secretRef:
         name: node-team2.service-secrets
-    image: georgesre/jnlp-node-team2:{{ env "SERVICE_NAMESPACE" }}
+    image: georgesre/jnlp-node-team2:latest
     command: ["jenkins-slave"]
     imagePullPolicy: Always
     securityContext:

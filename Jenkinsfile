@@ -3,7 +3,8 @@ pipeline {
     options { disableConcurrentBuilds() }
 
     environment {
-        TAG_NAME = "${env.BRANCH_NAME == 'master' ? 'stable' : 'test'}"
+        // TAG_NAME = "${env.BRANCH_NAME == 'master' ? 'stable' : 'test'}"
+        TAG_NAME = 'latest'
         REGISTRY_CREDENTIALS_ID = 'docker-registry-id'
     }
 
@@ -30,10 +31,11 @@ pipeline {
         }
 
         stage('Build dockerfiles') {
-
             steps {
-                docker.withRegistry('', "${REGISTRY_CREDENTIALS_ID}") {
-                    docker.build("georgesre/jnlp-node-team1:${TAG_NAME}", "-f dockerfiles/node-team1/Dockerfile dockerfiles/node-team1").push()
+                script {
+                    docker.withRegistry('', "${REGISTRY_CREDENTIALS_ID}") {
+                        docker.build("georgesre/jnlp-node-team1:${TAG_NAME}", "-f dockerfiles/node-team1/Dockerfile dockerfiles/node-team1").push()
+                    }
                 }
             }
         }

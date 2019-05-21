@@ -24,7 +24,7 @@ spec:
         name: global-conf
     - secretRef:
         name: node-team3.service-secrets
-    image: georgesre/jnlp-node-team3:{{ env "SERVICE_NAMESPACE" }}
+    image: georgesre/jnlp-node-team3:latest
     imagePullPolicy: Always
     securityContext:
       privileged: true
